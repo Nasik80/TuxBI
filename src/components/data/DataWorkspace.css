@@ -34,6 +34,15 @@
   gap: 6px;
   padding: 9px 12px;
 }
+.data-workspace__import-actions {
+  display: flex;
+  gap: 7px;
+}
+.data-workspace__import--secondary {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
 .data-workspace__import:disabled {
   cursor: wait;
   opacity: 0.65;

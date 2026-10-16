@@ -6,7 +6,7 @@ import type {
 } from "../types/application";
 
 export const DATA_PREVIEW_LIMIT = 200;
-type Delimiter = Dataset["metadata"]["delimiter"];
+type Delimiter = "," | ";" | "\t";
 
 export class CsvImportError extends Error {
   constructor(message: string) {
@@ -96,7 +96,7 @@ function detectDelimiter(text: string): Delimiter {
   );
 }
 
-function normalizeHeaders(headers: string[]): string[] {
+export function normalizeHeaders(headers: string[]): string[] {
   const seen = new Map<string, number>();
   return headers.map((header, index) => {
     const base = (index === 0 ? header.replace(/^\uFEFF/, "") : header).trim();

@@ -1,8 +1,8 @@
 # TuxBI architecture overview
 
-## Scope of 0.1A and 0.1B
+## Scope of 0.1A through 0.1E
 
-Version 0.1A establishes a desktop application boundary and a composable frontend shell. Version 0.1B adds local CSV import, typed dataset metadata, and a bounded preview. It does not include persistence, analytics, database access, visualization libraries, or telemetry.
+Version 0.1A establishes a desktop application boundary and 0.1B–0.1D add CSV, JSON, and `.xlsx` imports. Version 0.1E adds native Parquet schema and preview reading. All sources produce the same typed dataset metadata and bounded preview. These milestones do not include persistence, analytics, database access, visualization libraries, or telemetry.
 
 ## Major layers
 
@@ -26,15 +26,15 @@ CSS custom properties provide light and dark design tokens. Component-specific C
 
 The browser-facing code should not assume direct access to the operating system. Native features are introduced through narrowly scoped Tauri commands only when a milestone requires them. Every command should have typed inputs and outputs, validation at the native boundary, and the smallest capability/permission scope that supports its use case.
 
-In 0.1B the boundary exposes only `read_csv_file(path)`. The dialog plugin selects a local `.csv`, then the command validates the extension and reads UTF-8 text. Parsing and validation stay in the framework-independent frontend data layer; raw contents never leave the local application.
+In 0.1D the boundary exposes `read_xlsx_file(path)` for local workbook bytes. In 0.1E, `read_parquet_preview(path)` uses the Rust Parquet/Arrow reader to return schema, metadata row count, and at most 200 preview rows. CSV and JSON commands continue to read UTF-8 text. Raw contents never leave the local application.
 
 ### Data-source abstraction
 
-`DataSource`, `Dataset`, `DatasetColumn`, `DataType`, and `DatasetMetadata` are small typed concepts shared by the importer and UI. The source kind is currently `csv`, but the dataset and column contracts do not depend on CSV syntax. A dataset stores its source identity, schema, total row/column counts, delimiter metadata, and at most 200 preview rows. Future importers can produce the same shape without coupling React to a file format.
+`DataSource`, `Dataset`, `DatasetColumn`, `DataType`, and `DatasetMetadata` are small typed concepts shared by all importers and the UI. The source kind is currently `csv`, `json`, `excel`, or `parquet`, but the dataset and column contracts do not depend on any one syntax. A dataset stores its source identity, optional worksheet, schema, total row/column counts, optional delimiter metadata, and at most 200 preview rows. Parquet complex fields fall back to safe text representations through Arrow display formatting.
 
 ## Future data engine direction
 
-DuckDB is a planned future local data and analytics engine, but it is not part of 0.1B. When introduced, it should sit behind a dedicated data-service boundary rather than be coupled to React components. UI views should consume typed application services and metadata, not direct database handles or SQL construction.
+DuckDB is a planned future local data and analytics engine, but it is not part of 0.1E. When introduced, it should sit behind a dedicated data-service boundary rather than be coupled to React components. UI views should consume typed application services and metadata, not direct database handles or SQL construction.
 
 Visualization libraries are similarly deferred until the visualization milestone. The report workspace is currently an empty, stable layout surface intended to host those future components.
 

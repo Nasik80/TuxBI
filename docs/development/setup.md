@@ -38,7 +38,7 @@ Run the Tauri desktop application with hot reload:
 npm run tauri dev
 ```
 
-The first run may take longer because Rust dependencies are compiled. CSV import does not require a database service, external API, or telemetry configuration.
+The first run may take longer because Rust dependencies are compiled. CSV, JSON, Excel, and Parquet import do not require a database service, external API, or telemetry configuration.
 
 ## Quality commands
 
@@ -60,4 +60,4 @@ npm run tauri build
 - Use a Wayland or X11 desktop session; Tauri uses the system WebKitGTK runtime.
 - WebKitGTK development headers are required to compile the native host, even though the UI itself is built with React.
 - Keep Rust and Node current, but use the lockfile in CI and team development for repeatable dependency resolution.
-- TuxBI keeps imported CSV data in the running application only; 0.1B does not persist projects or upload files.
+- TuxBI keeps imported CSV, JSON, Excel, and Parquet data in the running application only; 0.1E does not persist projects or upload files.

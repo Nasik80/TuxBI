@@ -19,12 +19,13 @@ export type DataType =
   | "DateTime"
   | "Empty/Null";
 
-export type DataSourceKind = "csv";
+export type DataSourceKind = "csv" | "json" | "excel" | "parquet";
 
 export interface DataSource {
   kind: DataSourceKind;
   name: string;
   path: string;
+  worksheet?: string;
 }
 
 export interface DatasetColumn {
@@ -38,7 +39,7 @@ export interface DatasetMetadata {
   rowCount: number;
   columnCount: number;
   previewRowCount: number;
-  delimiter: "," | ";" | "\t";
+  delimiter: "," | ";" | "\t" | null;
 }
 
 export interface Dataset {

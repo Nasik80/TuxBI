@@ -19,6 +19,7 @@ export type ApplicationAction =
   | { type: "set-status"; message: string }
   | { type: "set-theme"; theme: Theme }
   | { type: "import-started" }
+  | { type: "import-cancelled" }
   | { type: "import-succeeded"; dataset: Dataset }
   | { type: "import-failed"; message: string };
 
@@ -50,7 +51,14 @@ export function applicationReducer(
         ...state,
         importStatus: "loading",
         importError: null,
-        statusMessage: "Reading CSV file…",
+        statusMessage: "Reading data file…",
+      };
+    case "import-cancelled":
+      return {
+        ...state,
+        importStatus: "idle",
+        importError: null,
+        statusMessage: "Import cancelled.",
       };
     case "import-succeeded":
       return {
@@ -66,7 +74,7 @@ export function applicationReducer(
         ...state,
         importStatus: "error",
         importError: action.message,
-        statusMessage: "CSV import failed.",
+        statusMessage: "Data import failed.",
       };
   }
 }

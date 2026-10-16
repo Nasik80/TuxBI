@@ -4,9 +4,9 @@ TuxBI is an independent, Linux-native business intelligence desktop application.
 
 ## Current release
 
-**Version:** 0.1B (CSV import)
+**Version:** 0.1E (Parquet import)
 
-The current milestone adds local CSV import to the 0.1A desktop foundation. TuxBI detects delimiters, parses quoted UTF-8 records, infers basic column types, reports metadata, and provides a bounded scrollable preview. Files remain local; no CSV data is uploaded or sent to external services.
+The current milestone adds local Parquet import alongside CSV, JSON, and Excel. TuxBI reads Parquet schema and bounded preview rows through the native Rust boundary, maps common column types, and preserves exact row counts from metadata where available. Files remain local; no data is uploaded or sent to external services.
 
 ## Technology stack
 
@@ -50,7 +50,7 @@ src/
   state/          Small reducer/context application state foundation
   styles/         Shared tokens and global styles
   types/          Shared TypeScript domain types
-  data/           CSV parsing, validation, and import boundary
+  data/           CSV/JSON/Excel import boundaries and shared dataset mapping
   utils/          Framework-independent helpers
 src-tauri/        Native Tauri host and minimal capability definition
 tests/            Focused frontend behavior tests
@@ -59,7 +59,7 @@ docs/             Architecture, development, and product roadmap notes
 
 ## Roadmap
 
-The active milestone is **0.1B — CSV Import**. See the complete [TuxBI roadmap](docs/roadmap/roadmap.md).
+The active milestone is **0.1E — Parquet Import**. See the complete [TuxBI roadmap](docs/roadmap/roadmap.md).
 
 ## Principles
 

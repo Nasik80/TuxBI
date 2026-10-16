@@ -2,19 +2,19 @@
 
 TuxBI is an independent Linux-native Business Intelligence desktop application. This roadmap describes product direction, not a commitment to a specific delivery date. Features are introduced only when their supporting architecture is ready.
 
-## Current milestone: 0.1B — CSV Import
+## Current milestone: 0.1E — Parquet Import
 
-0.1A — Foundation is complete. The current milestone adds local CSV selection, parsing, validation, type inference, dataset metadata, and bounded preview without visualization or transformation.
+0.1A — Foundation through 0.1D — Excel Import are complete. The current milestone adds native Parquet schema reading, metadata, and bounded preview without visualization or transformation.
 
 ## 0.1 — Local data foundation
 
 | Version  | Milestone                       | Focus                                                                            |
 | -------- | ------------------------------- | -------------------------------------------------------------------------------- |
 | **0.1A** | **Foundation (completed)**      | Desktop shell, component architecture, basic state, themes, tests, documentation |
-| **0.1B** | **CSV Import (current)**        | Select and load local CSV files                                                  |
-| 0.1C     | JSON Import                     | Select and load local JSON files                                                 |
-| 0.1D     | Excel Import                    | Read supported spreadsheet formats                                               |
-| 0.1E     | Parquet Import                  | Read local Parquet files                                                         |
+| **0.1B** | **CSV Import (completed)**      | Select and load local CSV files                                                  |
+| **0.1C** | **JSON Import (completed)**     | Select and load local JSON files                                                 |
+| **0.1D** | **Excel Import (completed)**    | Read supported `.xlsx` workbooks                                                 |
+| **0.1E** | **Parquet Import (current)**    | Read local Parquet files                                                         |
 | 0.1F     | Metadata and Statistics         | Schema, column metadata, and basic statistics                                    |
 | 0.1G     | Data Preview                    | Inspect imported data safely and efficiently                                     |
 | 0.1H     | `.tuxbi` Project Save/Load      | Local project persistence and restoration                                        |
