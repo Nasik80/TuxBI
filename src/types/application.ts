@@ -1,4 +1,5 @@
 export const applicationViews = [
+  "home",
   "report",
   "data",
   "model",
@@ -45,7 +46,7 @@ export interface Dataset {
   name: string;
   source: DataSource;
   columns: DatasetColumn[];
-  rows: string[][];
+  previewRows: string[][];
   metadata: DatasetMetadata;
 }
 

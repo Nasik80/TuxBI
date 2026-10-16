@@ -5,6 +5,10 @@ import {
 } from "../src/state/app-reducer";
 
 describe("applicationReducer", () => {
+  it("opens on Home by default", () => {
+    expect(initialApplicationState.activeView).toBe("home");
+  });
+
   it("selects a workspace and communicates its planned availability", () => {
     const nextState = applicationReducer(initialApplicationState, {
       type: "select-view",
@@ -12,7 +16,7 @@ describe("applicationReducer", () => {
     });
 
     expect(nextState.activeView).toBe("data");
-    expect(nextState.statusMessage).toContain("0.1B");
+    expect(nextState.statusMessage).toBe("Data workspace selected.");
     expect(nextState.theme).toBe("light");
   });
 });

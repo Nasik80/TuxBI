@@ -14,8 +14,23 @@
   margin-top: 36px;
 }
 
+.sidebar__logo-button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
 .sidebar__footer {
   margin-top: auto;
+}
+
+.sidebar__divider {
+  background: var(--border-subtle);
+  display: block;
+  height: 1px;
+  margin: 14px 10px 2px;
 }
 
 .sidebar__item {
@@ -52,4 +67,41 @@
 .sidebar__item--active:hover {
   background: var(--brand-subtle);
   color: var(--brand-strong);
+}
+
+.app-shell--home .sidebar {
+  padding: 18px 7px 10px;
+}
+
+.app-shell--home .brand {
+  justify-content: center;
+  padding: 0;
+}
+
+.app-shell--home .brand__wordmark {
+  display: none;
+}
+
+.app-shell--home .sidebar__navigation {
+  gap: 5px;
+  margin-top: 30px;
+}
+
+.app-shell--home .sidebar__item {
+  flex-direction: column;
+  font-size: 0.64rem;
+  gap: 5px;
+  justify-content: center;
+  min-height: 56px;
+  padding: 7px 3px;
+  text-align: center;
+}
+
+.app-shell--home .sidebar__divider {
+  margin: 12px 8px 2px;
+}
+
+.app-shell--home .sidebar__footer {
+  display: grid;
+  gap: 3px;
 }

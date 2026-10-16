@@ -7,6 +7,7 @@ export type IconName =
   | "chevronDown"
   | "data"
   | "folder"
+  | "home"
   | "model"
   | "moon"
   | "report"
@@ -32,6 +33,9 @@ const paths: Record<IconName, ReactElement> = {
   ),
   folder: (
     <path d="M3.5 6.5h6l1.7 2H20a.5.5 0 0 1 .5.5v9.5a.5.5 0 0 1-.5.5h-16a.5.5 0 0 1-.5-.5V7a.5.5 0 0 1 .5-.5Z" />
+  ),
+  home: (
+    <path d="m4 10 8-6 8 6v9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5V10Zm5 10v-6h6v6" />
   ),
   model: (
     <>

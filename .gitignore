@@ -68,6 +68,10 @@ htmlcov/
 # Local datasets
 data/
 datasets/
+!src/data/
+!src/data/**
+!src/components/data/
+!src/components/data/**
 
 # Generated reports
 reports/

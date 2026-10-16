@@ -6,8 +6,8 @@ import type {
 } from "../types/application";
 
 export const initialApplicationState: ApplicationState = {
-  activeView: "report",
-  statusMessage: "Ready for your next report.",
+  activeView: "home",
+  statusMessage: "Welcome to TuxBI.",
   theme: "light",
   dataset: null,
   importStatus: "idle",
@@ -23,6 +23,7 @@ export type ApplicationAction =
   | { type: "import-failed"; message: string };
 
 const viewStatus: Record<ApplicationView, string> = {
+  home: "Home selected.",
   report: "Report workspace selected.",
   data: "Data workspace selected.",
   model: "Model workspace selected. Modeling arrives in 0.7.",

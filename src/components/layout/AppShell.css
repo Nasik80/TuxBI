@@ -12,3 +12,11 @@
   min-width: 920px;
   overflow: hidden;
 }
+
+.app-shell--home {
+  grid-template-areas:
+    "sidebar workspace workspace"
+    "sidebar status status";
+  grid-template-columns: 92px minmax(0, 1fr) 0;
+  grid-template-rows: minmax(0, 1fr) 27px;
+}

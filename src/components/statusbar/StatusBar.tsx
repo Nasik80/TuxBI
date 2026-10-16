@@ -10,7 +10,7 @@ export function StatusBar() {
         <span className="status-bar__indicator" aria-hidden="true" />
         <span>{state.statusMessage}</span>
       </div>
-      <span className="status-bar__version">TuxBI 0.1A</span>
+      <span className="status-bar__version">TuxBI 0.1B</span>
     </footer>
   );
 }

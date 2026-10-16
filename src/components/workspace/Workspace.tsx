@@ -1,6 +1,8 @@
 import { useAppState } from "../../hooks/useAppState";
 import type { ApplicationView } from "../../types/application";
 import { Icon } from "../ui/Icon";
+import { DataWorkspace } from "../data/DataWorkspace";
+import { HomePage } from "../home/HomePage";
 import "./Workspace.css";
 
 interface WorkspaceCopy {
@@ -10,6 +12,11 @@ interface WorkspaceCopy {
 }
 
 const workspaceCopy: Record<ApplicationView, WorkspaceCopy> = {
+  home: {
+    eyebrow: "TuxBI home",
+    title: "Welcome to TuxBI.",
+    description: "Choose a workspace to begin.",
+  },
   report: {
     eyebrow: "Report canvas",
     title: "Start with your data.",
@@ -38,6 +45,8 @@ const workspaceCopy: Record<ApplicationView, WorkspaceCopy> = {
 
 export function Workspace() {
   const { state } = useAppState();
+  if (state.activeView === "home") return <HomePage />;
+  if (state.activeView === "data") return <DataWorkspace />;
   const content = workspaceCopy[state.activeView];
 
   return (
@@ -71,8 +80,8 @@ export function Workspace() {
               name={
                 state.activeView === "report"
                   ? "report"
-                  : state.activeView === "data"
-                    ? "data"
+                  : state.activeView === "settings"
+                    ? "settings"
                     : "model"
               }
               size={25}
@@ -80,7 +89,11 @@ export function Workspace() {
           </div>
           <p className="workspace__empty-eyebrow">{content.eyebrow}</p>
           <h2>{content.title}</h2>
-          <p>{content.description}</p>
+          <p>
+            {state.activeView === "report" && state.dataset
+              ? `${state.dataset.name} loaded. Ready to build your report.`
+              : content.description}
+          </p>
         </div>
       </section>
     </main>

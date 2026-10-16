@@ -4,9 +4,9 @@ TuxBI is an independent, Linux-native business intelligence desktop application.
 
 ## Current release
 
-**Version:** 0.1A (foundation)
+**Version:** 0.1B (CSV import)
 
-This milestone provides the desktop shell only: an original report workspace, navigation concepts, toolbar, inspector panel, status bar, light/dark theme switching, a typed React state foundation, and a minimal Tauri desktop boundary. It intentionally does not import, transform, model, store, or visualize data yet.
+The current milestone adds local CSV import to the 0.1A desktop foundation. TuxBI detects delimiters, parses quoted UTF-8 records, infers basic column types, reports metadata, and provides a bounded scrollable preview. Files remain local; no CSV data is uploaded or sent to external services.
 
 ## Technology stack
 
@@ -50,6 +50,7 @@ src/
   state/          Small reducer/context application state foundation
   styles/         Shared tokens and global styles
   types/          Shared TypeScript domain types
+  data/           CSV parsing, validation, and import boundary
   utils/          Framework-independent helpers
 src-tauri/        Native Tauri host and minimal capability definition
 tests/            Focused frontend behavior tests
@@ -58,7 +59,7 @@ docs/             Architecture, development, and product roadmap notes
 
 ## Roadmap
 
-The active milestone is **0.1A — Foundation**. The near-term focus continues through data import, metadata, preview, project save/load, and polish before visualization work begins. See the complete [TuxBI roadmap](docs/roadmap/roadmap.md).
+The active milestone is **0.1B — CSV Import**. See the complete [TuxBI roadmap](docs/roadmap/roadmap.md).
 
 ## Principles
 
