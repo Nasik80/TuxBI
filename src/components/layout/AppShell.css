@@ -1,0 +1,14 @@
+.app-shell {
+  background: var(--surface-canvas);
+  display: grid;
+  grid-template-areas:
+    "sidebar toolbar toolbar"
+    "sidebar workspace properties"
+    "sidebar status status";
+  grid-template-columns: 184px minmax(480px, 1fr) 252px;
+  grid-template-rows: 54px minmax(0, 1fr) 27px;
+  height: 100vh;
+  min-height: 680px;
+  min-width: 920px;
+  overflow: hidden;
+}

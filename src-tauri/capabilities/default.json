@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Minimal capabilities for TuxBI's main desktop window.",
+  "windows": ["main"],
+  "permissions": ["core:default", "dialog:allow-open"]
+}

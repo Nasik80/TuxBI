@@ -1,0 +1,40 @@
+.status-bar {
+  align-items: center;
+  background: var(--surface-raised);
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: flex;
+  font-size: 0.6875rem;
+  grid-area: status;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 0 16px;
+}
+
+.status-bar__message {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.status-bar__message span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-bar__indicator {
+  background: var(--success);
+  border-radius: 50%;
+  display: block;
+  flex: 0 0 auto;
+  height: 6px;
+  width: 6px;
+}
+
+.status-bar__version {
+  color: var(--text-subtle);
+  font-weight: 650;
+}
